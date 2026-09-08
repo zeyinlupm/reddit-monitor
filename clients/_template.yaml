@@ -1,0 +1,59 @@
+# Client profile template. Copy to clients/<slug>.yaml.
+# Only `client`, `geography.mode`, and one topic are required.
+
+client:
+  slug: example-client
+  name: Example Client
+  sheet_id: ""            # filled in after the first run
+  profile_version: "1.0"
+
+geography:
+  mode: local             # local | regional | national | none
+  primary:
+    - City A
+    - City B
+  # Keep a wider-area result when it names the client or a local provider.
+  keep_wider_area_when_client_named: true
+
+# Bounded list drives a community sweep (cheap, exhaustive).
+# Leave empty to force Reddit-wide keyword search instead.
+subreddits:
+  - examplecity
+  - exampleregion
+
+topics:
+  topic_key:
+    label: Human readable topic name
+    terms:
+      - formal term
+      - everyday phrasing
+      - common abbreviation
+      - likely misspelling
+    exclude:
+      - adjacent thing the client does not sell
+
+brand:
+  terms:
+    - "Exact Brand Name"
+    - "brandsite.com"
+  staff:
+    - "Dr. Example"
+  requires_context:
+    - term: "ordinary phrase that is also the brand"
+      needs_any: ["industry word", "city", "staff name"]
+
+competitors:
+  - name: Competitor A
+    terms: ["Competitor A", "competitora.com"]
+
+# Applied before anything else. Every false positive should end up here.
+exclude:
+  - obviously unrelated category
+  - the client's own marketing
+  - bot and moderator posts
+
+intents_extra: []         # optional additions to the default intent list
+
+retention:
+  months: 12              # purge Results rows older than this
+  store_author: false     # keep usernames out of the Sheet unless needed
