@@ -43,14 +43,14 @@ Geography is optional. Do not assume a client has one.
 
 ## Brand terms that are ordinary words
 
-A brand called "Root Cause Dental" will collide with every use of the phrase "root cause." Handle it in the profile, not by hand:
+A brand called "Bright Path Dental" will collide with every use of the phrase "bright path." Handle it in the profile, not by hand:
 
 ```yaml
 brand:
-  terms: ["Root Cause Dental", "rootcausedental.ca"]
+  terms: ["Bright Path Dental", "brightpathdental.com"]
   requires_context:
-    - term: "root cause"
-      needs_any: ["dental", "dentist", "clinic", "London", "Lambeth", "Dr. Sep"]
+    - term: "bright path"
+      needs_any: ["dental", "dentist", "clinic", "City A", "Dr. Example"]
 ```
 
 A bare term matches on its own. A `requires_context` term counts only when at least one supporting signal appears nearby. When neither holds, it is not a brand mention — no matter how much you would like it to be.

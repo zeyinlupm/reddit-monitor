@@ -10,22 +10,25 @@ Built by Redding Designs to run across multiple clients from one engine.
 
 **The harness** — cron, a scheduled task, or a person typing — decides when it runs and how far back it looks.
 
-**The client profile** (`clients/<slug>.yaml`) holds everything client-specific: topics, vocabulary, subreddits, brand terms, exclusions, geography. Adding a client means adding a YAML file, not editing the skill.
+**The client profile** (`skills/reddit-monitor/clients/<slug>.yaml`) holds everything client-specific: topics, vocabulary, subreddits, brand terms, exclusions, geography. Adding a client means adding a YAML file, not editing the skill.
 
 ## Layout
 
 ```
-SKILL.md                      the session: inputs, workflow, rules, output
-references/
-  capabilities.md             which MCP tools to use for each function
-  reddit-search.md            Apify actor usage, search strategy, cost
-  output.md                   result schema, classification, Sheet structure
-  client-profile.md           profile format and client onboarding
-clients/
-  _template.yaml              start here for a new client
-  root-cause-dental.yaml      reference implementation
-scripts/
-  dedupe.py                   canonicalize URLs, drop repeat results
+.claude-plugin/
+  plugin.json                 plugin manifest
+  marketplace.json            marketplace manifest (lets this repo be added as a plugin source)
+skills/reddit-monitor/
+  SKILL.md                    the session: inputs, workflow, rules, output
+  references/
+    capabilities.md           which MCP tools to use for each function
+    reddit-search.md          Apify actor usage, search strategy, cost
+    output.md                 result schema, classification, Sheet structure
+    client-profile.md         profile format and client onboarding
+  clients/
+    _template.yaml            start here for a new client
+  scripts/
+    dedupe.py                 canonicalize URLs, drop repeat results
 ```
 
 ## Portability
@@ -36,8 +39,8 @@ It always names the path it used and states what that choice cannot guarantee �
 
 ## Adding a client
 
-1. Copy `clients/_template.yaml` to `clients/<slug>.yaml`.
-2. Run the onboarding steps in `references/client-profile.md` — the skill will propose subreddits, vocabulary, and exclusions from a brief.
+1. Copy `skills/reddit-monitor/clients/_template.yaml` to `skills/reddit-monitor/clients/<slug>.yaml`.
+2. Run the onboarding steps in `skills/reddit-monitor/references/client-profile.md` — the skill will propose subreddits, vocabulary, and exclusions from a brief.
 3. Have a human approve the draft.
 4. Do a short calibration run and review the output together. Nearly every correction belongs in `exclude`.
 5. Record the Sheet id in the profile.
@@ -59,5 +62,5 @@ Actual result counts and cost go in the Sheet's `Run Log`, per run, per client.
 ## Verify the script
 
 ```sh
-python scripts/dedupe.py --selfcheck
+python skills/reddit-monitor/scripts/dedupe.py --selfcheck
 ```
