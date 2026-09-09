@@ -1,0 +1,17 @@
+{
+  "name": "reddit-monitor",
+  "description": "Find, verify, classify, and log public Reddit conversations for a client, then append new results to a client-owned Google Sheet.",
+  "author": {
+    "name": "Redding Designs",
+    "url": "https://github.com/zeyinlupm"
+  },
+  "homepage": "https://github.com/zeyinlupm/reddit-monitor",
+  "repository": "https://github.com/zeyinlupm/reddit-monitor",
+  "keywords": [
+    "reddit",
+    "brand-monitoring",
+    "market-research",
+    "listening",
+    "google-sheets"
+  ]
+}

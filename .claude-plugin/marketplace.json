@@ -1,0 +1,22 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "reddit-monitor",
+  "description": "Reddit listening sessions for client brand, competitor, and market research.",
+  "owner": {
+    "name": "Redding Designs",
+    "url": "https://github.com/zeyinlupm"
+  },
+  "plugins": [
+    {
+      "name": "reddit-monitor",
+      "source": "./",
+      "description": "Find, verify, classify, and log public Reddit conversations for a client, then append new results to a client-owned Google Sheet.",
+      "homepage": "https://github.com/zeyinlupm/reddit-monitor",
+      "author": {
+        "name": "Redding Designs",
+        "url": "https://github.com/zeyinlupm"
+      },
+      "category": "productivity"
+    }
+  ]
+}
